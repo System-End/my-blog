@@ -1,4 +1,4 @@
-@import "tailwindcss/index.css";
+@import "tailwindcss";
 
 :root {
     --bg-deep: #0a0a0f;
