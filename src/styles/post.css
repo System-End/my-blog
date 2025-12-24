@@ -1,0 +1,59 @@
+.post-content {
+    line-height: 1.8;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+    color: var(--purple-bright);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.post-content h1 {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.post-content h2 {
+    font-size: 1.5rem;
+}
+
+.post-content p {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.post-content a {
+    color: var(--cyan-accent);
+    border-bottom: 1px dashed var(--cyan-accent);
+}
+
+.post-content a:hover {
+    color: var(--purple-bright);
+    border-bottom-color: var(--purple-bright);
+}
+
+.post-content code {
+    background: var(--bg-elevated);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: var(--cyan-accent);
+}
+
+.post-content pre {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.post-content img {
+    max-width: 100%;
+    border: 1px solid var(--border-color);
+    margin: 1rem 0;
+}

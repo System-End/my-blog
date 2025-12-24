@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import "../styles/global.css";
+import "../styles/post.css";
+
+type Props = CollectionEntry<"blog">["data"];
+const { title, description, pubDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title} // BLOG</title>
+        <meta name="description" content={description} />
+    </head>
+    <body class="min-h-screen">
+        <main class="max-w-3xl mx-auto px-4 py-12">
+            <a
+                href="/posts"
+                class="text-sm mb-8 inline-block"
+                style="color: var(--text-muted);"
+            >
+                ← back to posts
+            </a>
+
+            <article>
+                <header
+                    class="mb-8 pb-6"
+                    style="border-bottom: 1px solid var(--border-color);"
+                >
+                    <p
+                        class="text-xs mono mb-2"
+                        style="color: var(--purple-dim);"
+                    >
+                        <FormattedDate date={pubDate} />
+                    </p>
+                    <h1 class="text-4xl font-bold cyber-title mb-3">{title}</h1>
+                    <p style="color: var(--text-muted);">{description}</p>
+                    {
+                        heroImage && (
+                            <Image
+                                src={heroImage}
+                                format="webp"
+                                alt={title}
+                                class="mt-6"
+                                style="border: 1px solid var(--border-color);"
+                            />
+                        )
+                    }
+                </header>
+
+                <div class="post-content">
+                    <slot />
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

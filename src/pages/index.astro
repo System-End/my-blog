@@ -1,16 +1,29 @@
 ---
-
+import "../styles/global.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>My Blog</title>
+    </head>
+    <body
+        class="bg-gray-900 text-white min-h-screen flex items-center justify-center"
+    >
+        <main class="text-center">
+            <h1 class="text-5xl font-bold mb-4">Welcome to My Blog</h1>
+            <p class="text-xl text-gray-400 mb-8">
+                A place for wild rambles.. maybe
+            </p>
+            <a
+                href="/posts"
+                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition"
+            >
+                See My Posts
+            </a>
+        </main>
+    </body>
 </html>

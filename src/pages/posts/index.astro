@@ -1,0 +1,71 @@
+---
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import "../../styles/global.css";
+
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <title>// POSTS</title>
+    </head>
+    <body class="min-h-screen">
+        <main class="max-w-3xl mx-auto px-4 py-12">
+            <a
+                href="/"
+                class="text-sm mb-8 inline-block"
+                style="color: var(--text-muted);"
+            >
+                ← back to home
+            </a>
+
+            <header class="mb-10">
+                <h1 class="text-4xl font-bold cyber-title">// POSTS</h1>
+                <p style="color: var(--text-muted);" class="mt-2">
+                    Transmissions from the void
+                </p>
+            </header>
+
+            {
+                posts.length === 0 && (
+                    <p style="color: var(--text-muted);" class="mono">
+                        [ NO_DATA_FOUND ]
+                    </p>
+                )
+            }
+
+            <div class="space-y-4">
+                {
+                    posts.map((post) => (
+                        <article class="cyber-card p-5">
+                            <a
+                                href={`/posts/${post.id}`}
+                                class="text-xl font-semibold block mb-2"
+                            >
+                                {post.data.title}
+                            </a>
+                            <p
+                                style="color: var(--text-muted);"
+                                class="text-sm mb-3"
+                            >
+                                {post.data.description}
+                            </p>
+                            <p
+                                class="text-xs mono"
+                                style="color: var(--purple-dim);"
+                            >
+                                <FormattedDate date={post.data.pubDate} />
+                            </p>
+                        </article>
+                    ))
+                }
+            </div>
+        </main>
+    </body>
+</html>
